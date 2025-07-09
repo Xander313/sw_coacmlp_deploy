@@ -1,0 +1,199 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block tittle %}Cooperativa de Ahorro y Crédito{% endblock tittle %}
+
+
+{% block content%}
+<link rel="stylesheet" href="{% static 'styles/aparicion.css' %}">
+
+    <div class="caption fade">
+        <h3 style="color: #023196;   text-shadow:
+    -1px -1px 0 #CA6AB4,
+     1px -1px 0 #CA6AB4,
+    -1px  1px 0 #CA6AB4,
+     1px  1px 0 #CA6AB4;">Cooperativa de Ahorro y Crédito</h3>
+        <h2 class="aparecerBorde" style="color: #CA6AB4; ">Monseñor Leonidas Proaño</h2>
+        <h6 style="color: #FFF8C6;"><em>¡El Ahorro Es Progreso! </em></h6>
+        <div class="main-button">
+            <div class="scroll-to-section"><a href="#section2">Nuestros productos</a></div>
+        </div>
+    </div>
+{% endblock content %}
+
+  {% block footerMainBloc%}
+  
+
+  <section class="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-12">
+          <div class="features-post">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa-solid fa-users"></i> Acerca de Nosotros</h4>
+              </div>
+              <div class="content-hide">
+                <p>Somos la <strong>Cooperativa de Ahorro y Crédito Monseñor Leónidas Proaño</strong>, con más de 25 años apoyando el desarrollo económico de comunidades rurales y urbanas en Cotopaxi.</p>
+                <p class="hidden-sm">Nuestra misión es democratizar el acceso al crédito con honestidad, responsabilidad y el carisma salesiano que nos identifica.</p>
+                <div>
+                  <a href="{% url 'aboutUs' %}">Conócenos más</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-12">
+          <div class="features-post">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa-solid fa-clipboard-user"></i>Testimonios</h4>
+              </div>
+              <div class="content-hide">
+                <p>Descubre cómo nuestros socios han transformado sus vidas con nuestros servicios financieros. Historias reales de emprendedores, agricultores y familias que crecen con nosotros.</p>
+                <p class="hidden-sm">Gracias al crédito de la cooperativa, mi negocio de cuyes ahora es sostenible" - - <em>Leonor Velasco, socia</em>.</p>
+                <div>
+                  <a href="{% url 'testi' %}">Ver Testimonios</a>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="col-lg-4 col-12">
+          <div class="features-post second-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa-solid fa-newspaper"></i> Noticias </h4>
+              </div>
+              <div class="content-hide">
+                <p>Mantente informado sobre <strong>talleres de capacitación</strong>, <strong>nuevos productos financieros</strong> y eventos comunitarios en Latacunga, Zumbahua y Guasaganda.</p>
+                <p class="hidden-sm">Suscríbete a nuestro boletín para recibir oportunidades exclusivas para socios.</p>
+                <div><a href="{% url 'newsLetter' %}">Ver Noticias</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+        <!--  
+        <div class="col-lg-3 col-12">
+          <div class="features-post third-features">
+            <div class="features-content">
+              <div class="content-show">
+                <h4><i class="fa fa-book"></i>Real </h4>
+              </div>
+              <div class="content-hide">
+                <p>Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet. Donec maximus elementum ex. Cras convallis ex rhoncus, laoreet libero eu, vehicula libero.</p>
+                <p class="hidden-sm">Curabitur id eros vehicula, tincidunt libero eu, lobortis mi. In mollis eros a posuere imperdiet.</p>
+                <div class="scroll-to-section"><a href="#section4">Read More</a></div>
+            </div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </section>
+{% endblock footerMainBloc%}
+
+
+{% block serviciosContent%}
+
+  <section class="section why-us" data-section="section2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Nuestra cooperativa ofrece</h2>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div id='tabs'>
+            <ul>
+              <li><a href='#tabs-1'>Ahorros</a></li>
+              <li><a href='#tabs-2'>Créditos</a></li>
+              <li><a href='#tabs-3'>Inversiones</a></li>
+            </ul>
+            <section class='tabs-content'>
+              <article id='tabs-1'>
+                <div class="row">
+                  <div class="col-md-6 fade">
+                    <img style="border-radius: 20px;" src="{% static 'assets/images/choose-us-image-01.jpeg'%}" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Ahorros</h4>
+                    <p>Tu esfuerzo merece seguridad y rentabilidad. Con nuestros planes de ahorro, puedes:
+                      <br>
+                      <br>
+
+                      <strong>Ahorro programado:</strong> Cultiva el hábito del ahorro con metas a corto, mediano y largo plazo.
+                      <br>
+                      <strong>Cuenta de ahorros:</strong> Disponibilidad de tus fondos con rendimientos competitivos.
+                      <br>
+                      <strong>Ahorro juvenil e infantil:</strong> Fomenta la cultura del ahorro en las nuevas generaciones.
+                      <br>
+                      <br>
+                      <em>"Guardamos tus sueños, multiplicamos tus oportunidades."</em></p>
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-2'>
+                <div class="row">
+                  <div class="col-md-6 fade">
+                    <img style="border-radius: 20px;" src="{% static 'assets/images/choose-us-image-02.jpeg'%}" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Créditos</h4>
+                    <p>Impulsamos tus proyectos con créditos ágiles, flexibles y adaptados a tus necesidades:
+                    <br>
+                    <br>
+
+                    <strong>Crédito productivo:</strong> Para emprendimientos agrícolas, ganaderos y comerciales.
+                    <br>
+
+                    <strong>Crédito de consumo:</strong> Financia tus necesidades personales o familiares.
+                    <br>
+
+                    <strong>Microcréditos:</strong> Apoyo rápido para pequeños negocios.
+                    <br>
+                    <br>
+                    <em>"Creemos en tu trabajo y te acompañamos para que alcances tus metas."</em>
+                  </p> 
+
+                  </div>
+                </div>
+              </article>
+              <article id='tabs-3'>
+                <div class="row">
+                  <div class="col-md-6 fade">
+                    <img style="border-radius: 20px;" src="{% static 'assets/images/choose-us-image-03.jpeg'%}" alt="">
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Inversiones</h4>
+                    <p>Haz que tu dinero trabaje por ti con alternativas seguras y rentables:
+                    <br>
+                    <br>
+
+                    <strong>Certificados de inversión:</strong> Benefíciate con tasas atractivas y plazos flexibles.
+                    <br>
+
+                    <strong>Fondos solidarios:</strong> Invierte en el desarrollo de tu comunidad mientras obtienes rendimientos.
+                    <br>
+                    <br>
+                    <em>"Tus recursos se multiplican, tu impacto también."</em>
+                  </p>
+
+                  </div>
+                </div>
+              </article>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  {% endblock serviciosContent%}

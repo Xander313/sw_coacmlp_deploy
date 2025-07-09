@@ -1,0 +1,195 @@
+:root {
+    --form-bg-color: ;
+    --form-border-radius: 10px;
+    --form-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --form-padding: 30px;
+    --form-max-width: 800px;
+
+    --input-margin-bottom: 20px;
+    --input-border: 1px solid #ccc;
+    --input-padding: 12px;
+    --input-border-radius: 8px;
+
+    --button-bg: #28a745;
+    --button-hover-bg: #218838;
+    --button-color: white;
+    --button-padding: 10px 20px;
+    --button-radius: 5px;
+    --button-font-weight: bold;
+
+
+    --bg-color: #FFF8C6;
+    --sidebar-color: #CA6AB4;
+    --main-color: #000;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.contenedor-formularios {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    padding: 0 15px;
+    
+}
+
+.formulario-noticias {
+    background-color: var(--bg-color);
+    padding: var(--form-padding);
+    border-radius: var(--form-border-radius);
+    box-shadow: var(--form-shadow);
+    width: 70%;
+    max-width: var(--form-max-width);
+    scale: 1;
+    transition: scale 0.3s ease;
+}
+
+.formulario-noticias:hover {
+    scale:1.02;
+}
+
+.formulario-noticias .mb-3 {
+    margin-bottom: var(--input-margin-bottom);
+}
+
+.formulario-noticias label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.formulario-noticias input,
+.formulario-noticias textarea {
+    width: 100%;
+    padding: var(--input-padding);
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-noticias input:focus,
+.formulario-noticias textarea:focus {
+    border-color: var(--button-bg);
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+}
+
+.cuerpoform {
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding);
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contenedorBotonGuardarNoticias {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.boton-guardar {
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    padding: var(--button-padding);
+    border: none;
+    border-radius: var(--button-radius);
+    font-weight: var(--button-font-weight);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-guardar:hover {
+    background-color: var(--button-hover-bg);
+}
+.contenedorBotones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.boton-cancelar {
+    background-color: rgba(202, 106, 180, 0.3); /* Color morado suave */
+    color: #6f2c5d; /* Texto oscuro para buen contraste */
+    padding: var(--button-padding);
+    border: none;
+    border-radius: var(--button-radius);
+    font-weight: var(--button-font-weight);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.boton-cancelar:hover {
+    background-color: rgba(202, 106, 180, 0.5);
+}
+
+
+textarea {
+    resize: vertical; 
+    min-height: 80px;
+    max-height: 130px; 
+    width: 100%; 
+    overflow-y: auto; 
+    padding: 10px; 
+    border-radius: 5px; 
+    border: 3px solid var(--sidebar-color); 
+    background-color: var(--bg-color);
+}
+
+
+.formulario-noticias input[type="text"],
+.formulario-noticias input[type="url"],
+.formulario-noticias input[type="number"] {
+    width: 100%;
+    padding: 0.50rem;
+    margin-bottom: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: 3px solid var(--sidebar-color);
+    background-color: var(--bg-color);
+}
+
+.django-ckeditor-widget {
+    margin-bottom: 1.5rem !important;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--sidebar-color); 
+}
+
+.cke_editor_cuerpo, 
+.cke_contents,      
+.ck-editor__editable {
+    width: 100% !important;
+    box-sizing: border-box;
+
+}
+
+
+.cke_chrome {
+    border-radius: 4px !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+
+}
+
+.cke_top {
+    background: var(--sidebar-color) !important;
+    border-bottom: 1px solid var(--bg-color) !important;
+
+}

@@ -1,0 +1,64 @@
+{% extends "sidebarEducacion.html"%}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylesEducacionaPanel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/aparicion.css' %}">
+
+
+{% endblock extra_css %}
+
+
+{% block tittle %}Panel Central{% endblock tittle %}
+
+
+{% block content %}
+
+<h1 class="fade" style="text-align: center; margin-top: 20px; color: #023196;">GESTIÓN DE EDUCACIÓN FINANCIERA</h1>
+
+<div class="fade" style="width: 95%; margin: auto;">
+<div class="d-flex justify-content-end mb-3">
+    <a href="{% url 'crearNuevoCapitulo' %}" class="btn btn-outline-primary">Crear Capítulo <i class="fa fa-pen"></i></a>
+</div>
+
+<table class="mi-tabla-personalizada table table-bordered table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>Orden</th>
+            <th >Título</th>
+            <th>H. Aprox.</th>
+            <th>Fecha de Crea.</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for capitulo in capitulos %}
+        <tr>
+            <td>{{ capitulo.orden }}</td>
+            <td class="col-titulo"><span>{{ capitulo.titulo }}</span></td>
+            <td>{{ capitulo.horasProximadas }}</td>
+            <td>{{ capitulo.fechaCreacion }}</td>
+
+            <td>
+                <a href="{% url 'edicion' capitulo.id %}" class="btn btn-outline-warning btn-sm mb-1">
+                    <i class="fas fa-edit"></i> Editar
+                </a>
+                <a href="#" class="btn btn-outline-danger btn-sm btn-eliminar" data-id="{{capitulo.id}}">
+                    <i class="fa fa-trash"></i> Eliminar
+                </a>
+
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8" class="text-center">No hay capítulos registrados</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+<script src="{% static 'js/ejecutarAccionesEducacionFiniaciera.js' %}"></script>
+
+{% endblock content %}

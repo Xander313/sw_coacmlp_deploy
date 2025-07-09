@@ -1,0 +1,76 @@
+{% extends 'sidebarNoticias.html'%} 
+
+{% load static %} 
+{% block tittle %}Cooperativa de Ahorro y Crédito{% endblock tittle %} 
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'styles/aparicion.css' %}" />
+<link rel="stylesheet" href="{% static 'styles/contenidoPresentatioAdmin.css' %}" />
+
+<div id="masterContainer" class="masterContainer fade">
+  <div id="buttonsContainer" class="buttonsContainer">
+    <a class="butonnssContenido" onclick="cargarSeccion('mision')">
+      <span class="material-symbols-outlined">target</span>
+      <span class="titleContent">Misión</span>
+    </a>
+    <a class="butonnssContenido" onclick="cargarSeccion('vision')">
+      <span class="material-symbols-outlined">handshake</span>
+      <span class="titleContent">Visión</span>
+    </a>
+    <a class="butonnssContenido" onclick="cargarSeccion('historia')">
+      <span class="material-symbols-outlined">receipt_long</span>
+      <span class="titleContent">Historia</span>
+    </a>
+    <a class="butonnssContenido" onclick="cargarSeccion('valores')">
+      <span class="material-symbols-outlined">family_home</span>
+      <span class="titleContent">Valores</span>
+    </a>
+  </div>
+
+  <div class="ElementsMasterCointainer">
+    <iframe id="contenidoIframe" src="{% url 'generamain' %}" width="100%" height="1000px" style="border:none;"></iframe>
+  </div>
+</div>
+
+
+    {% if messages %}
+    {% for message in messages %}
+        <script>
+        Swal.fire({
+
+            title: "{% if message.tags == 'error' %}¡ERROR!{% else %}¡ÉXITO!{% endif %}",
+            
+            text: "{{ message }}",
+
+            icon: "{% if message.tags == 'error' %}error{% else %}success{% endif %}"
+
+        });
+        </script>
+    {% endfor %}
+    {% endif %}
+
+
+
+    
+<script>
+  function cargarSeccion(seccion) {
+  const iframe = document.getElementById('contenidoIframe');
+
+  const urls = {
+    mision: "{% url 'misionAd' %}",
+    vision: "{% url 'visionAd' %}",
+    historia: "{% url 'historiaAd' %}",
+    valores: "{% url 'valoresAd' %}"
+  };
+
+  iframe.src = urls[seccion];
+
+  const botones = document.querySelectorAll('.butonnssContenido');
+  botones.forEach(btn => btn.classList.remove('activo'));
+  event.currentTarget.classList.add('activo');
+}
+
+</script>
+
+
+{% endblock content %} 

@@ -1,0 +1,230 @@
+{% load static %}
+{% load tz %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>{% block tittle %} {% endblock tittle %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <!-- CDN para FONT AWESOME -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-grad-school.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}">
+<!--
+    
+TemplateMo 557 Grad School
+
+https://templatemo.com/tm-557-grad-school
+
+-->
+  </head>
+
+<body>
+
+   
+  <!--header-->
+  
+  <header class="main-header clearfix" role="header">
+    <div class="logo">
+       <a href="/"> <em>COAC</em> MLP</a>
+    </div>
+    
+    <a href="/" class="menu-link"><i class="fa fa-bars"></i></a>
+    <nav id="menu" class="main-nav" role="navigation">
+      <ul class="main-menu">
+        <!--
+        <li><a href="#section1">Home</a></li>
+        <li class="has-submenu"><a href="#section2">About Us</a>
+          <ul class="sub-menu">
+            <li><a href="#section2">Who we are?</a></li>
+            <li><a href="#section3">What we do?</a></li>
+            <li><a href="#section3">How it works?</a></li>
+            <li><a href="https://templatemo.com/about" rel="sponsored" class="external">External URL</a></li>
+          </ul>
+        </li>
+        <li><a href="#section4">Courses</a></li>
+        <li><a href="#section5">Video</a></li> -->
+        <li><a href="{% url 'iniciarSesion' %}" class="external">Educación</a></li>
+        <li><a href="{% url 'loginAdministracion' %}" class="external">Acceder</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+          <source src="{% static 'assets/images/course-video.mp4'%}" type="video/mp4" />
+      </video>
+
+      <div class="video-overlay header-text">
+
+          {% block content %}
+
+          {% endblock %}
+
+      </div>
+  </section>
+
+
+  {% block footerMainBloc%}
+
+  {% endblock footerMainBloc%}
+
+  {% block serviciosContent%}
+  
+  {% endblock serviciosContent%}
+
+
+
+
+
+<section class="section contact" style="color: #ffffff;" data-section="section6">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-heading">
+            <h2>Contactos</h2>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-info">
+            <h3>¿Por qué elegirnos?</h3>
+            <br>
+            <ul class="why-choose-us" style="font-size: 1rem !important;">
+              <li style="font-size: inherit !important;"><strong>+25 años de experiencia</strong> apoyando a los sectores rurales y urbanos.</li>
+              <li style="font-size: inherit !important;"><strong>Tasas preferenciales</strong> y trato personalizado.</li>
+              <li style="font-size: inherit !important;"><strong>Presencia en Latacunga, Zumbahua y Guasaganda</strong>.</li>
+            </ul>
+            <br>
+            <br>
+
+
+            
+            <div class="contact-details" style="font-size: 1rem !important;">
+              <h4 style="font-size: inherit !important;">📞 Contáctanos:</h4>
+              <p style="font-size: inherit !important;"><strong>Teléfono:</strong> (03) 2807-844</p>
+              <p style="font-size: inherit !important;"><strong>Celular:</strong> 0984805715</p>
+              <p style="font-size: inherit !important;"><strong>Oficinas:</strong> Matriz Latacunga, Zumbahua, Guasaganda</p>
+            </div>
+            <br>
+            <br>
+            
+            <div class="call-to-action">
+              <p style="font-size: 1rem !important;"><em>Tu progreso es nuestra misión. ¡Únete a nuestra familia cooperativa!</em></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div id="map">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1m7wFzTbIYhjlCO4LRP5bozqLBUpu2Ik&hl=es&ehbc=2E312F" width="100%" height="422px" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p><i class="fa fa-copyright"></i> Copyright {% now "Y" %} by UTC  
+          <br>
+          Diseñando para: <a href="#" rel="sponsored" target="_parent">Cooperatia de Ahorro y Crédito MOnseñor Leonidas Proaño</a><br>
+          Patrocinado por: <a href="#" rel="sponsored" target="_blank">CIYA UTC</a>
+          
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js'%}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+    <script src="{% static 'assets/js/isotope.min.js'%}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js'%}"></script>
+    <script src="{% static 'assets/js/lightbox.js'%}"></script>
+    <script src="{% static 'assets/js/tabs.js'%}"></script>
+    <script src="{% static 'assets/js/video.js'%}"></script>
+    <script src="{% static 'assets/js/slick-slider.js'%}"></script>
+    <script src="{% static 'assets/js/custom.js'%}"></script>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+          var
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
+          }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .scroll-to-section').on('click', 'a', function (e) {
+          if($(e.target).hasClass('external')) {
+            return;
+          }
+          e.preventDefault();
+          $('#menu').removeClass('active');
+          showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
+    </script>
+    {% if messages %}
+    {% for message in messages %}
+        <script>
+        Swal.fire({
+            title: "{% if message.tags == 'error' %}¡ERROR!{% else %}¡ÉXITO!{% endif %}",
+            text: "{{ message }}",
+            icon: "{% if message.tags == 'error' %}error{% else %}success{% endif %}"
+        });
+        </script>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

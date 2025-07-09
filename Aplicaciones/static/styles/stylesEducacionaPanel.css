@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root {
+    --bg-color: #FFF8C6;  
+    --line-color: #CA6AB4; 
+    --text-color: #000;    
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.examenForm input[type="checkbox"] {
+    display: inline-block !important;
+}
+
+
+.mi-tabla-personalizada {
+    background-color: var(--bg-color);  
+    color: var(--text-color);          
+    border-color: var(--line-color); 
+    text-align: center;   
+}
+
+.mi-tabla-personalizada td,
+.mi-tabla-personalizada th {
+    background-color: var(--bg-color); 
+    color: var(--text-color);       
+    border: 4px solid var(--line-color);
+}
+
+.col-titulo {
+    width: 550px;
+    min-width: 200px;
+    white-space: normal;         
+    word-break: break-word;     
+    overflow-wrap: break-word;    
+    line-height: 1.3;            
+}
+
+.col-titulo .badge {
+    white-space: normal !important;
+    display: inline-block;
+    text-align: left;
+}
+
+.col-titulo span {
+    background-color: #023196; 
+    padding: 5px;
+    color: var(--bg-color);
+    font-size: clamp(1rem, 1.3dvh, 1.5rem);
+    border-radius: 5px;
+}
+
+

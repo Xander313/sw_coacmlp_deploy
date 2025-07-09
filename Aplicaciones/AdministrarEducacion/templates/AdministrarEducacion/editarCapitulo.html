@@ -1,0 +1,164 @@
+{% extends 'sidebarEducacion.html' %}
+{% block title %}Editar Capítulo{% endblock %}
+
+{% load static %}
+
+
+{% block tittle %}Edición de Capítulo{% endblock tittle %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/formularioCrearCapitulo.css' %}">
+<link rel="stylesheet" href="{% static 'styles/examen.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/aparicion.css' %}">
+
+{% endblock extra_css %}
+
+
+{% block content %}
+
+
+
+
+<h2 style="text-align: center; margin-top: 20px;">EDITAR CAPITULO</h2>
+
+<div class="contenedor-formularios fade">
+    <div class="formulario-capitulo">
+        <form action="{% url 'ejecutarEdicionCapitulo' capitulo.id  %}" method="post" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+            <div id="formulario-wrapper" class="formulario-wrapper">
+                <div class="formulario-capitulo">
+                    <div class="mb-3">
+                        <label for="titulo" class="form-label">Título: </label>
+                        <input type="text" class="form-control" value="{{ titulo|default:capitulo.titulo }}"" name="titulo" id="titulo" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="orden" class="form-label">Orden: </label>
+                        <input type="number" class="form-control" value="{{ orden|default:capitulo.orden }}" name="orden" id="orden" required>
+                    </div>
+                    <label for="cuerpo" class="form-label">Cuerpo: <span><small style="margin-top: 0;" class="text-muted">Detalle el contenido capítulo.</small></span></label>
+                    <div class="cuerpoform" id="cuerpo">
+                        {{ form.cuerpo }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="haprox" class="form-label">Horas aproximadas:</label>
+                        <input type="number" value="{{ haprox|default:capitulo.horasProximadas }}" class="form-control" name="haprox" id="haprox" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagenURL" class="form-label">URL de la imagen:</label>
+                        <textarea name="imagenURL" rows="5" id="imagenURL" placeholder="https://laimagen.com"> {{ imagenURL|default:capitulo.imagenURL }} </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="videoURL" class="form-label">URL del video:</label>
+                        <textarea name="videoURL" rows="5" id="videoURL" placeholder="https://elvideo.com"> {{ videoURL|default:capitulo.videoURL }} </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="timer" class="form-label">Tiempo de activacion: <span><small style="margin-top: 0;" class="text-muted">En segundos</small></span> </label>
+                        <input type="number" value="{{ timer|default:capitulo.activacion }}" class="form-control" name="timer" id="timer" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="checkbox" {% if  aplica_examen or examen %}checked{% endif %} name="examenS" id="examenS">
+                        <label style="display: flex; justify-content: center; padding: 10px; border-radius: 5px;" for="examenS" class="form-label"> <span class="material-symbols-outlined">assignment</span> Aplica examen</label>
+                    </div>
+                </div>
+                <div id="formularioExamen" class="examenForm" style="display:{% if aplica_examen or examen %}block{% else %}none{% endif %};">
+
+                    <h3>Formulario del examen</h3>
+
+                <div id="contenedorPreguntas">
+                    {{ preguntas_data|json_script:"preguntas-json" }}
+                    <script>
+                        const preguntasDesdeServidor = JSON.parse(document.getElementById("preguntas-json").textContent);
+                        window.addEventListener('DOMContentLoaded', () => {
+                            if (Array.isArray(preguntasDesdeServidor)) {
+                                preguntasDesdeServidor.forEach(p => {
+                                    const contenedor = document.getElementById("contenedorPreguntas");
+                                    const nuevaPregunta = document.createElement("div");
+                                    nuevaPregunta.className = "elementoPregunta";
+                                    nuevaPregunta.dataset.index = p.index;
+                                    let respuestasHTML = "";
+                                    p.respuestas.forEach((resp, i) => {
+                                        const checked = (p.correcta == i.toString()) ? "checked" : "";
+                                        respuestasHTML += `
+                                            <div class="respuestasContainer">
+                                                <div class="respuestaItemExamen">
+                                                    <label>Respuesta:</label>
+                                                    <input type="text" name="preguntas[${p.index}][respuestas][]" value="${resp}" required>
+                                                    <label>
+                                                        <input type="radio" name="preguntas[${p.index}][respuesta_correcta]" value="${i}" ${checked}>
+
+                                                    </label>
+                                                    <span class="material-symbols-outlined delete-icon" onclick="eliminarElemento(this)">delete</span>
+                                                </div>
+                                            </div>`
+                                            ;
+                                    });
+
+                                    nuevaPregunta.innerHTML = `
+                                        <div class="preguntaLinea">
+                                            <label>Pregunta:</label>
+                                            <input type="text" name="preguntas[${p.index}][texto]" value="${p.texto}" required>
+                                            <span class="material-symbols-outlined delete-icon" onclick="eliminarElemento(this)">delete</span>
+                                        </div>
+                                        <div class="respuestasContainer">
+                                            ${respuestasHTML}
+                                        </div>
+                                        <button type="button" class="botonAgregar botonAgregarNuevaRespuesta" onclick="agregarRespuesta(this)"> <span class="material-symbols-outlined">add</span> Nueva respuesta</button>
+                                    `;
+                                    contenedor.appendChild(nuevaPregunta);
+                                });
+
+                                // Actualizar contador
+                                contadorPreguntas = preguntasDesdeServidor.length;
+                                actualizarBotonesEliminar();
+                            }
+                        });
+                    </script>
+                </div>
+
+                <button type="button" class="botonAgregar preguntaBotonAgregar" onclick="agregarPregunta()"> <span class="material-symbols-outlined">add</span> Nueva pregunta</button>
+                </div>
+                </div>
+            <div class="contenedorBotonGuardarCapitulo">
+                <button type="button" id="botonEditar" class="botonEditarFork"> <span class="material-symbols-outlined">edit_note</span> Editar Capítulo</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkbox = document.getElementById('examenS');
+    const examenForm = document.getElementById('formularioExamen');
+
+    // Mostrar u ocultar al cargar
+    if (checkbox.checked) {
+      examenForm.style.display = 'block';
+      examenForm.classList.add('fade');
+    }
+
+    // Manejo dinámico al marcar/desmarcar
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        examenForm.style.display = 'block';
+        examenForm.classList.remove('fade'); // Reiniciar si ya tiene
+        void examenForm.offsetWidth; // Forzar reflow para reiniciar animación
+        examenForm.classList.add('fade');
+      } else {
+        examenForm.style.display = 'none';
+        examenForm.classList.remove('fade');
+      }
+    });
+  });
+</script>
+
+
+<script src="{% static 'js/ejecutarAccionesEducacionFiniaciera.js' %}"></script>
+<script src="{% static 'js/examen.js' %}"></script>
+
+{{ form.media }}
+{% endblock %}

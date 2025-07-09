@@ -1,0 +1,12 @@
+venv/
+
+.env
+
+db.sqlite3
+sq_coacmlp.sqlite3
+
+*.sqlite3
+
+__pycache__/
+*.py[cod]
+*.pyc
