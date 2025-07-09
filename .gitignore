@@ -9,4 +9,6 @@ sq_coacmlp.sqlite3
 
 __pycache__/
 *.py[cod]
-*.pyc
+*.pyc.env
+
+.env
