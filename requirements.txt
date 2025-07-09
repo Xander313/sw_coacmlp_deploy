@@ -5,10 +5,10 @@ chardet==5.2.0
 charset-normalizer==3.4.2
 cryptography==44.0.3
 defusedxml==0.7.1
+dj-database-url==2.1.0
 Django==5.2.1
 django-ckeditor==6.7.2
 django-js-asset==3.1.2
-git-filter-repo==2.47.0
 idna==3.10
 oauthlib==3.2.2
 pillow==11.2.1
@@ -23,5 +23,8 @@ requests-oauthlib==2.0.0
 social-auth-app-django==5.4.3
 social-auth-core==4.6.1
 sqlparse==0.5.3
-tzdata==2025.2
+typing_extensions==4.14.1
 urllib3==2.4.0
+psycopg2-binary==2.9.9 
+gunicorn==21.2.0
+whitenoise==6.6.0

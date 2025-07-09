@@ -1,0 +1,141 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+}
+
+:root {
+    --bg-color: #FFF8C6;
+    --sidebar-color: #CA6AB4;
+    --main-color: #023196;
+    --text-color: #000;
+}
+
+
+.mainRoot {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    padding: 80px 0;
+    gap: 10px 
+}
+
+
+.MainContenainerForm{
+    width: 100vw;
+    display: flex;
+}
+
+
+.inputAutenticacion{
+    background-color: var(--sidebar-color);
+    border: 2px solid var(--main-color);
+    padding: 7px;
+    border-radius: 10px;
+    color: #FFF;
+}
+
+.formAutenticacion{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--bg-color);
+    font-weight: bold;
+    background-color: #ca6ab4a2;
+    width: 500px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 50px 0 #CA6AB4;
+    scale: 1;
+    transition: scale 0.5s ease;
+}
+
+.formAutenticacion:hover{
+
+    scale: 1.03;
+}
+
+.buttongenerearCertificado{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    background-color: var(--bg-color);
+    color: #000;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    scale: 1;
+    transition:  background-color 0.5s ease, color 0.5s ease, scale 0.5s ease ;
+}
+
+.buttongenerearCertificado:hover{
+
+    background-color: var(--sidebar-color);
+    color: var(--bg-color);
+    scale: 1.1;
+}
+
+.contenedorInputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.submitBotton{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.titleAutenticacion{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+
+}
+
+.titleAutenticacion h3 {
+    color: #023196;   text-shadow:
+            -1px -1px 0 #CA6AB4,
+            1px -1px 0 #CA6AB4,
+            -1px  1px 0 #CA6AB4,
+            1px  1px 0 #CA6AB4;
+}
+
+.titleAutenticacion h4 {
+    color: #CA6AB4; text-shadow:
+            -4px -4px 0 #023196,
+            4px -4px 0 #023196,
+            -4px  4px 0 #023196,
+            4px  4px 0 #023196;
+}
+
+
+
+.autentication-label{
+    color: #FFF8C6; 
+    text-align: center;
+}
+
+
+.fade {
+    opacity: 0;
+    animation: fade 1.5s ease-out forwards;
+
+}
+
+@keyframes fade {
+    to {
+        opacity: 1;
+
+    }
+}
