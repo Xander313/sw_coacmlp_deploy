@@ -30,8 +30,11 @@ from django.conf import settings
 import uuid
 
 
-
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+import locale
+try:
+    locale.setlocale(locale.LC_TIME, 'es_ES.utf8')
+except locale.Error:
+    locale.setlocale(locale.LC_TIME, '') 
 
 
 
