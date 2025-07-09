@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'Aplicaciones.Certificacion'
 ]
 
-
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -63,15 +62,18 @@ CKEDITOR_CONFIGS = {
         ],
         'height': '100%',
         'width': '100%',
-        
-        'enterMode': 2,        
-        'shiftEnterMode': 1,    
-        'removePlugins': 'elementspath', 
-        'toolbarCanCollapse': False,   
-        'forcePasteAsPlainText': True, 
-    }
+    },
 }
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'enterMode': 2, 
+        'shiftEnterMode': 1,
+        'removePlugins': 'elementspath',
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True,
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
